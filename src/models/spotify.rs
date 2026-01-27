@@ -1,6 +1,6 @@
 #[derive(Clone)]
 pub struct Track {
-    pub name: String, 
+    pub name: String,
     pub artists: Vec<String>,
 }
 
