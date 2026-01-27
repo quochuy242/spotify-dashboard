@@ -12,6 +12,7 @@ Truy cập Spotify của bạn trực tiếp từ Telegram. Xem top tracks, ngh�
 - 🔍 **Search** - Tìm bài hát trong thư viện của bạn
 - 📋 **Playlist** - Tạo, xem và quản lý playlist
 - ➕ **Add to Playlist** - Thêm bài hát vào playlist
+- 🎼 **Genre Detection** - Phát hiện thể loại nhạc tự động (Ballad, Pop, Rock, EDM, Hip-Hop, v.v.)
 
 ## 🚀 Cài Đặt
 
@@ -79,6 +80,39 @@ Truy cập Spotify của bạn trực tiếp từ Telegram. Xem top tracks, ngh�
 /add_to_playlist Imagine | My Favorites
 ✅ Track Added: Imagine → My Favorites
 ```
+
+## 🎼 Phát Hiện Thể Loại Nhạc (Genre Detection)
+
+Bot sử dụng hệ thống phát hiện thể loại dựa trên quy tắc (rule-based), không dùng AI/LLM. Hệ thống phân tích:
+
+**Audio Features từ Spotify:**
+- Tempo, Energy, Valence, Danceability
+- Acousticness, Instrumentalness, Loudness, Speechiness
+
+**Metadata của Nghệ Sĩ:**
+- Genre tags từ tài khoản Spotify
+- Độ nổi tiếng (Popularity)
+
+**Hỗ Trợ 13 Thể Loại:**
+- 🎭 **Ballad** - Nhạc chậm, cảm động
+- 🎶 **Pop** - Nhạc nhẹ nhàng, vui vẻ
+- 🎸 **Rock** - Năng lượng cao, guitar mạnh
+- 🎛️ **EDM** - Electronic, bass mạnh, nhảy
+- 🎤 **Hip-Hop** - Rap, flow, beat nặng
+- 💿 **R&B** - Soul, mượt mà, lãng mạn
+- 🎷 **Jazz** - Nhạc jazz, im lặng
+- 🎹 **Classical** - Nhạc cổ điển, giao hưởng
+- 🎸 **Acoustic** - Acoustic guitar, tự nhiên
+- 🌙 **Lo-Fi** - Chillhop, study music
+- 🌟 **Indie** - Independent, alternative
+- 🤘 **Metal** - Heavy metal, rock nặng
+- ❓ **Unknown** - Không xác định
+
+**Ưu Điểm:**
+- ✅ Không dùng LLM - Nhanh, tin cậy, không cần internet thêm
+- ✅ Hoàn toàn trong suốt - Bạn biết chính xác tại sao một bài hát được phân loại như vậy
+- ✅ Hỗ trợ lọc - Dễ tìm bài hát theo thể loại
+- ✅ Có thể điều chỉnh - Các quy tắc dễ tuning nếu cần
 
 ## ⚙️ Cấu Hình
 
