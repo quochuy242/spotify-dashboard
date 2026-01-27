@@ -1,72 +1,89 @@
-# Spotify Dashboard Telegram Bot
+# 🎵 Spotify Dashboard Telegram Bot
 
-A Telegram bot that lets you interact with Spotify directly. Check your top tracks, artists, recently played songs, and user profile all from Telegram.
+Truy cập Spotify của bạn trực tiếp từ Telegram. Xem top tracks, nghệ sĩ yêu thích, bài hát vừa nghe, tạo và quản lý playlist - tất cả trong một bot!
 
-## Features
+## ✨ Tính Năng
 
-- 🔐 **OAuth2 Authentication** with Spotify
-- 🎵 View your top tracks
-- 🎤 View your top artists  
-- ⏱️ See recently played songs
-- 👤 Check your Spotify profile info
-- Per-user session management
+- 🔐 **Xác thực Spotify** - Đăng nhập an toàn với OAuth2
+- 🎵 **Top Tracks** - Xem 10 bài hát yêu thích nhất của bạn
+- 🎤 **Top Artists** - Xem 10 nghệ sĩ yêu thích nhất
+- ⏱️ **Recently Played** - Xem 10 bài hát vừa nghe gần đây
+- 👤 **Profile** - Xem thông tin tài khoản Spotify
+- 🔍 **Search** - Tìm bài hát trong thư viện của bạn
+- 📋 **Playlist** - Tạo, xem và quản lý playlist
+- ➕ **Add to Playlist** - Thêm bài hát vào playlist
 
-## Setup
+## 🚀 Cài Đặt
 
-### Prerequisites
+### Yêu Cầu
 
-- Rust 1.70+ (for building)
-- A Telegram bot token (get from [@BotFather](https://t.me/botfather))
-- Spotify API credentials (get from [Spotify Developer Dashboard](https://developer.spotify.com/dashboard))
+- Rust 1.70+ (để build)
+- Telegram bot token (từ [@BotFather](https://t.me/botfather))
+- Spotify API credentials (từ [Spotify Developer Dashboard](https://developer.spotify.com/dashboard))
 
-### Installation
+### Hướng Dẫn
 
-1. **Clone the repo**
+1. **Clone repo**
    ```bash
    git clone <repo-url>
    cd spotify-dashboard
    ```
 
-2. **Setup environment variables**
+2. **Cấu hình biến môi trường**
    ```bash
    cp .env.example .env
    ```
    
-   Edit `.env` with:
-   - `TELOXIDE_TOKEN`: Your Telegram bot token
-   - `RSPOTIFY_CLIENT_ID`: From Spotify Developer Dashboard
-   - `RSPOTIFY_CLIENT_SECRET`: From Spotify Developer Dashboard
-   - `RSPOTIFY_REDIRECT_URI`: OAuth callback URL (can be anything like http://localhost:3000/callback)
+   Điền vào `.env`:
+   - `TELOXIDE_TOKEN` - Token từ @BotFather
+   - `RSPOTIFY_CLIENT_ID` - Từ Spotify Dashboard
+   - `RSPOTIFY_CLIENT_SECRET` - Từ Spotify Dashboard
+   - `RSPOTIFY_REDIRECT_URI` - OAuth callback (ví dụ: http://localhost:3000/callback)
 
-3. **Build & Run**
+3. **Build và chạy**
    ```bash
    cargo build --release
    ./target/release/spotify-dashboard
    ```
 
-## Bot Commands
+## 📲 Lệnh Bot
 
-- `/help` - Show all available commands
-- `/login` - Authenticate with Spotify
-- `/me` - Show your Spotify profile info
-- `/top_tracks` - Show your top 10 tracks
-- `/top_artists` - Show your top 10 artists
-- `/recently_played` - Show your 10 recently played tracks
+| Lệnh | Chức Năng |
+|------|-----------|
+| `/help` | Hiển thị tất cả lệnh |
+| `/login` | Đăng nhập Spotify |
+| `/me` | Xem thông tin profile |
+| `/top_tracks` | Top 10 bài hát |
+| `/top_artists` | Top 10 nghệ sĩ |
+| `/recently_played` | 10 bài hát vừa nghe |
+| `/search query` | Tìm bài hát |
+| `/playlists` | Danh sách playlist |
+| `/playlist name` | Chi tiết playlist |
+| `/create_playlist name` | Tạo playlist mới |
+| `/add_to_playlist song \| playlist` | Thêm bài hát vào playlist |
 
-## Architecture
+## 💡 Ví Dụ Sử Dụng
 
-The project was migrated from an Axum web server to a Telegram bot using **teloxide**:
+```
+/login
+👉 Ấn nút để đăng nhập với Spotify
 
-- `src/main.rs` - Bot entry point and dispatcher setup
-- `src/bot/` - Telegram bot handlers and commands
-- `src/handlers/` - Spotify API interaction logic (reused from Axum version)
-- `src/auth/` - Spotify OAuth2 authentication
-- `src/models/` - Data structures for Spotify API responses
-- `src/utils/` - Helper utilities (stream collection, etc)
+/search imagine
+🔍 Kết quả tìm kiếm cho "imagine"
+1. Imagine - John Lennon
+...
 
-### Key Dependencies
+/create_playlist My Favorites
+✅ Playlist Created: My Favorites
 
-- **teloxide** - Telegram bot framework
-- **rspotify** - Spotify Web API client
-- **tokio** - Async runtime
-- **serde** - Serialization/deserialization
+/add_to_playlist Imagine | My Favorites
+✅ Track Added: Imagine → My Favorites
+```
+
+## ⚙️ Cấu Hình
+
+Bot tự động lưu session của mỗi user, không cần cấu hình thêm. Chỉ cần set biến môi trường và chạy!
+
+## 📝 License
+
+MIT
