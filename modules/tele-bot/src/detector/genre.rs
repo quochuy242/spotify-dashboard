@@ -5,7 +5,7 @@ pub enum Genre {
     Ballad,
     Pop,
     Rock,
-    EDM,
+    Edm,
     HipHop,
     RnB,
     Jazz,
@@ -23,7 +23,7 @@ impl Genre {
             Genre::Ballad => "Ballad",
             Genre::Pop => "Pop",
             Genre::Rock => "Rock",
-            Genre::EDM => "EDM",
+            Genre::Edm => "Edm",
             Genre::HipHop => "Hip-Hop",
             Genre::RnB => "R&B",
             Genre::Jazz => "Jazz",
@@ -134,7 +134,7 @@ pub fn detect_genre(
         } else if scores.rock == max_score {
             (Genre::Rock, norm_score)
         } else if scores.edm == max_score {
-            (Genre::EDM, norm_score)
+            (Genre::Edm, norm_score)
         } else if scores.hiphop == max_score {
             (Genre::HipHop, norm_score)
         } else if scores.rnb == max_score {
@@ -469,7 +469,7 @@ mod tests {
         let genres = vec!["electronic".to_string(), "edm".to_string()];
 
         let result = detect_genre(features, &genres, 70);
-        assert_eq!(result.genre, Genre::EDM);
+        assert_eq!(result.genre, Genre::Edm);
         assert!(result.confidence > 0.4);
     }
 
