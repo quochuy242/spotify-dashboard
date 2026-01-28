@@ -4,7 +4,7 @@ mod error;
 mod models;
 mod state;
 mod utils;
-mod genre_detector;
+mod detector;
 
 use dotenvy::dotenv;
 use teloxide::prelude::*;

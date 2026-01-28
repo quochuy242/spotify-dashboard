@@ -1,27 +1,2 @@
-[package]
-name = "spotify-dashboard"
-version = "0.1.0"
-edition = "2021"
-
-[dependencies]
-tokio = { version = "1.37", features = ["rt-multi-thread", "macros"] }
-dotenvy = "0.15"
-
-reqwest = { version = "0.11", default-features = false, features = [
-  "json",
-  "rustls-tls",
-  "blocking"
-] }
-
-rspotify = { version = "0.12", default-features = false, features = [
-  "client-reqwest",
-  "reqwest-rustls-tls"
-] }
-
-openssl = { version = "0.10", features = ["vendored"] }
-
-tracing = "0.1"
-tracing-subscriber = { version = "0.3", features = ["env-filter"] }
-futures = "0.3.31"
-teloxide = { version = "0.17", features = ["macros"] }
-lazy_static = "1.4"
+[workspace]
+members = ["modules/tele-bot"]
