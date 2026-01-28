@@ -6,6 +6,15 @@ readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
     "fastapi[standard]>=0.128.0",
-    "langextract>=1.1.1",
+    "jsonformer>=0.12.0",
+    "protobuf>=6.33.4",
     "requests>=2.32.5",
+    "sentencepiece>=0.2.1",
+    "torch>=2.10.0",
+    "transformers>=4.40",
+]
+
+[dependency-groups]
+dev = [
+    "pytest>=9.0.2",
 ]

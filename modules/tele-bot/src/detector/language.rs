@@ -5,22 +5,12 @@ pub enum Language {
     English,
     Spanish,
     French,
-    German,
-    Italian,
-    Portuguese,
-    Russian,
     Japanese,
     Korean,
     Chinese,
     Vietnamese,
     Thai,
     Hindi,
-    Arabic,
-    Turkish,
-    Swedish,
-    Polish,
-    Dutch,
-    Greek,
     Unknown,
 }
 
@@ -30,22 +20,12 @@ impl Language {
             Language::English => "English",
             Language::Spanish => "Spanish",
             Language::French => "French",
-            Language::German => "German",
-            Language::Italian => "Italian",
-            Language::Portuguese => "Portuguese",
-            Language::Russian => "Russian",
             Language::Japanese => "Japanese",
             Language::Korean => "Korean",
             Language::Chinese => "Chinese",
             Language::Vietnamese => "Vietnamese",
             Language::Thai => "Thai",
             Language::Hindi => "Hindi",
-            Language::Arabic => "Arabic",
-            Language::Turkish => "Turkish",
-            Language::Swedish => "Swedish",
-            Language::Polish => "Polish",
-            Language::Dutch => "Dutch",
-            Language::Greek => "Greek",
             Language::Unknown => "Unknown",
         }
     }
@@ -55,22 +35,12 @@ impl Language {
             Language::English => "en",
             Language::Spanish => "es",
             Language::French => "fr",
-            Language::German => "de",
-            Language::Italian => "it",
-            Language::Portuguese => "pt",
-            Language::Russian => "ru",
             Language::Japanese => "ja",
             Language::Korean => "ko",
             Language::Chinese => "zh",
             Language::Vietnamese => "vi",
             Language::Thai => "th",
             Language::Hindi => "hi",
-            Language::Arabic => "ar",
-            Language::Turkish => "tr",
-            Language::Swedish => "sv",
-            Language::Polish => "pl",
-            Language::Dutch => "nl",
-            Language::Greek => "el",
             Language::Unknown => "unknown",
         }
     }
@@ -116,18 +86,6 @@ fn country_to_language(country_code: &str) -> Language {
         // French-speaking countries
         "FR" | "BE" | "CH" | "CA" | "SN" | "CG" | "CD" => Language::French,
 
-        // German-speaking countries
-        "DE" | "AT" | "CH" => Language::German,
-
-        // Italian-speaking countries
-        "IT" | "CH" => Language::Italian,
-
-        // Portuguese-speaking countries
-        "PT" | "BR" | "AO" | "MZ" | "CV" => Language::Portuguese,
-
-        // Russian-speaking countries
-        "RU" | "BY" | "KZ" | "UA" => Language::Russian,
-
         // Asian countries
         "JP" => Language::Japanese,
         "KR" => Language::Korean,
@@ -135,23 +93,6 @@ fn country_to_language(country_code: &str) -> Language {
         "VN" => Language::Vietnamese,
         "TH" => Language::Thai,
         "IN" => Language::Hindi,
-
-        // Middle Eastern countries
-        "SA" | "AE" | "EG" | "JO" | "LB" | "QA" | "KW" => Language::Arabic,
-
-        // Turkish
-        "TR" => Language::Turkish,
-
-        // Nordic countries
-        "SE" => Language::Swedish,
-        "NO" | "DK" => Language::English, // Often English-speaking in music
-
-        // Eastern European
-        "PL" => Language::Polish,
-        "GR" => Language::Greek,
-
-        // Dutch-speaking
-        "NL" => Language::Dutch,
 
         // Default to Unknown
         _ => Language::Unknown,
@@ -219,30 +160,6 @@ mod tests {
         assert_eq!(
             detect_language_from_country(Some("FR")).language,
             Language::French
-        );
-        assert_eq!(
-            detect_language_from_country(Some("DE")).language,
-            Language::German
-        );
-        assert_eq!(
-            detect_language_from_country(Some("IT")).language,
-            Language::Italian
-        );
-        assert_eq!(
-            detect_language_from_country(Some("PT")).language,
-            Language::Portuguese
-        );
-    }
-
-    #[test]
-    fn test_detect_middle_eastern_countries() {
-        assert_eq!(
-            detect_language_from_country(Some("SA")).language,
-            Language::Arabic
-        );
-        assert_eq!(
-            detect_language_from_country(Some("TR")).language,
-            Language::Turkish
         );
     }
 

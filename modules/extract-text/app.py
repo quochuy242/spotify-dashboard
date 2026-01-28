@@ -5,7 +5,7 @@ Provides endpoints for tele-bot module to send user input and receive extracted 
 
 from flask import Flask, request, jsonify
 from typing import Dict, Any
-from extract import extract_text, MusicMetadata
+from extractor import extract_text, MusicMetadata
 
 app = Flask(__name__)
 
